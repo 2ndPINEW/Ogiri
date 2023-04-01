@@ -16,7 +16,7 @@ function fallbackHandler(req: Request, resp: Response) {
       status: 404,
     });
   } else {
-    return new Response(Deno.readFileSync("./static/index.html"), {
+    return new Response(Deno.readFileSync(`${Deno.cwd()}/static/index.html`), {
       status: 200,
       headers: resp.headers,
     });
