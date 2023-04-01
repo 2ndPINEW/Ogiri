@@ -1,0 +1,7 @@
+{
+  "recommendations": [
+    "denoland.vscode-deno",
+    "angular.ng-template",
+    "esbenp.prettier-vscode"
+  ]
+}
