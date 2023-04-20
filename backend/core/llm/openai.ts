@@ -19,7 +19,6 @@ const fetchApi = async (opt: { prompt: string; modelName?: string }) => {
   });
 
   if (!res.ok) {
-    console.log(res);
     throw new Error("OpenAI API error");
   }
 
@@ -60,7 +59,7 @@ export const executePrompt = async <T extends Prompt>(
       line.startsWith(`${key}: `)
     );
     if (!line) {
-      throw new Error("Invalid response format");
+      throw new Error("Invalid llm response format");
     }
     response[key] = line.replace(`${key}: `, "");
   });
