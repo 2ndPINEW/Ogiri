@@ -4,12 +4,14 @@
 
 import config from "./deno.json" assert { type: "json" };
 import * as $0 from "./routes/_middleware.ts";
-import * as $1 from "./routes/api/test.ts";
+import * as $1 from "./routes/api/hc/index.ts";
+import * as $2 from "./routes/api/test.ts";
 
 const manifest = {
   routes: {
     "./routes/_middleware.ts": $0,
-    "./routes/api/test.ts": $1,
+    "./routes/api/hc/index.ts": $1,
+    "./routes/api/test.ts": $2,
   },
   islands: {},
   baseUrl: import.meta.url,
