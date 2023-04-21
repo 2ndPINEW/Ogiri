@@ -1,19 +1,10 @@
 import { createApiErrorString } from "./api.ts";
 
-export const postOnly = (req: Request) => {
-  if (req.method !== "POST") {
-    return new Response(
-      createApiErrorString({
-        message: "Method not allowed",
-        status: 405,
-      }),
-      { status: 405 }
-    );
-  }
-};
+// この辺のガード系、throwしたいんだけど、middlewareとかでハンドリングする手段がないからしゃーない
 
-export const getOnly = (req: Request) => {
-  if (req.method !== "GET") {
+type Method = "GET" | "POST" | "PUT" | "DELETE" | "PATCH" | "HEAD" | "OPTIONS";
+export const methodGuard = (req: Request, allowMethods: Method[]) => {
+  if (!allowMethods.includes(req.method)) {
     return new Response(
       createApiErrorString({
         message: "Method not allowed",

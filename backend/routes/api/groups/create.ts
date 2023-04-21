@@ -4,23 +4,29 @@ import { SuccessString, createApiErrorString } from "../../../util/api.ts";
 import {
   bodyPropertyCheck,
   isResponse,
-  postOnly,
+  methodGuard,
 } from "../../../util/guards.ts";
 
-export const handler = async (req: Request, _ctx: HandlerContext) => {
-  if (postOnly(req)) return postOnly(req);
+/**
+ * @api {post} /api/groups/create グループ作成
+ * グループ作成時にAPIから受け取るリクエストボディの型
+ */
+const requestBodyProperties = [
+  {
+    key: "groupId",
+    type: "string",
+  },
+  {
+    key: "groupName",
+    type: "string",
+  },
+] as const;
 
-  const properties = [
-    {
-      key: "groupId",
-      type: "string",
-    },
-    {
-      key: "groupName",
-      type: "string",
-    },
-  ] as const;
-  const bodyProperty = await bodyPropertyCheck(req, properties);
+export const handler = async (req: Request, _ctx: HandlerContext) => {
+  const methodGuardResponse = methodGuard(req, ["POST"]);
+  if (methodGuardResponse) return methodGuardResponse;
+
+  const bodyProperty = await bodyPropertyCheck(req, requestBodyProperties);
   if (isResponse(bodyProperty)) return bodyProperty;
 
   const { groupId, groupName } = bodyProperty;
