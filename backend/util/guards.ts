@@ -3,6 +3,9 @@ import { createApiErrorString } from "./api.ts";
 // この辺のガード系、throwしたいんだけど、middlewareとかでハンドリングする手段がないからしゃーない
 
 type Method = "GET" | "POST" | "PUT" | "DELETE" | "PATCH" | "HEAD" | "OPTIONS";
+/**
+ * 許可したメソッド以外なら405を返す
+ */
 export const methodGuard = (req: Request, allowMethods: Method[]) => {
   if (!allowMethods.includes(req.method)) {
     return new Response(
@@ -27,6 +30,9 @@ type ExtractTypeByKey<T extends Property, K extends string> = T extends {
     : never
   : never;
 
+/**
+ * リクエストボディのプロパティの存在と型チェックを行う
+ */
 export const bodyPropertyCheck: <P extends readonly Property[]>(
   req: Request,
   properties: P
@@ -95,7 +101,9 @@ export const bodyPropertyCheck: <P extends readonly Property[]>(
   return json;
 };
 
-/** レスポンスオブジェクトかどうか */
+/**
+ * レスポンスオブジェクトかどうか
+ */
 export const isResponse = (response: any): response is Response => {
   return response.status || response.body;
 };
