@@ -6,10 +6,13 @@
 
 import { start } from "$fresh/server.ts";
 import manifest from "./fresh.gen.ts";
-import * as dotenv from "dotenv";
+import { initDotEnv } from "./util/dotenv.ts";
+import { supabase } from "./core/db/supabase.ts";
 
-await dotenv.config({
-  export: true,
-});
+await initDotEnv();
+
+const { data, error } = await supabase.from("users").select("*");
+
+console.log(data, error);
 
 await start(manifest);
