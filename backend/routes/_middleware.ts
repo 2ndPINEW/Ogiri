@@ -1,5 +1,5 @@
 import { MiddlewareHandlerContext } from "$fresh/server.ts";
-import { createApiErrorString } from "../util/error.ts";
+import { createApiErrorString } from "../util/api.ts";
 
 interface State {
   data: string;

@@ -160,7 +160,9 @@
     "https://esm.sh/v116/cross-fetch@3.1.5/deno/cross-fetch.mjs": "be43e2fc88afad172ee461e33d50e39d89511300013157a10008506c52fdbfd6",
     "https://esm.sh/v116/es5-ext@0.10.62/deno/global.js": "5fe45a955818afd1e0e8ad67eeb50f62a4b543588aefd727a1f9b732121a33fa",
     "https://esm.sh/v116/node.ns.d.ts": "0fb081f0cd2150931bd54baa04f31466abd9ca701fd9060d07931402cf8367ba",
-    "https://esm.sh/v116/websocket@1.0.34/deno/websocket.mjs": "d2ce3b66220b1399ace959015f493ef00287b73b2aa5f2017e1c61f11e4b40cb"
+    "https://esm.sh/v116/websocket@1.0.34/deno/websocket.mjs": "d2ce3b66220b1399ace959015f493ef00287b73b2aa5f2017e1c61f11e4b40cb",
+    "https://www.gstatic.com/firebasejs/9.8.1/firebase-app.js": "81d16c8e1c79d9c647c0a28af64b25d95fc2979e45d806d374e981bf7b56393d",
+    "https://www.gstatic.com/firebasejs/9.8.1/firebase-firestore.js": "18cef71d7554baa7e5a167dc544c581aaaab27fef16b28c14787c84a9c60382d"
   },
   "npm": {
     "specifiers": {
