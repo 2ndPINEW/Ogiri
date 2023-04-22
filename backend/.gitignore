@@ -1,4 +1,6 @@
 # Compiled output (ビルドしたフロントのコード)
 static/*
 
+node_modules
+
 .env
