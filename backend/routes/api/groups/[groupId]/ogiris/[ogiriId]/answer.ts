@@ -3,6 +3,7 @@ import {
   supabase,
   supabaseErrorResponse,
 } from "../../../../../../core/db/supabase.ts";
+import { scoring } from "../../../../../../core/ogiri/scoring.ts";
 import { createApiErrorString } from "../../../../../../util/api.ts";
 import {
   bodyPropertyCheck,
@@ -44,7 +45,17 @@ export const handler = async (req: Request, ctx: HandlerContext) => {
     );
   }
 
-  // TODO: 大喜利が終了していないかチェックする
+  // 大喜利が終了しているかチェック
+  const isEnd = new Date(ogiri.ended_at) < new Date();
+  if (isEnd) {
+    return new Response(
+      createApiErrorString({
+        message: "This ogiri is already ended",
+        status: 503,
+      }),
+      { status: 503 }
+    );
+  }
 
   // ユーザーが存在するかチェック
   const { data: users } = await supabase
@@ -61,12 +72,31 @@ export const handler = async (req: Request, ctx: HandlerContext) => {
     );
   }
 
+  // TODO: 採点はここでしないで、バッチ処理でするようにする
+  const durationTime =
+    new Date(ogiri.ended_at).getTime() - new Date(ogiri.created_at).getTime();
+  const diffTime = new Date().getTime() - new Date(ogiri.created_at).getTime();
+  const progress = diffTime / durationTime;
+
+  let ogiriScore = 60;
+  let ogiriReason = "感動でAIが採点できませんでした";
+  try {
+    const { score, reason } = await scoring(ogiri.odai, answer);
+    ogiriScore = Number(score);
+    ogiriReason = reason;
+  } catch {}
+
+  const maxProgressBonus = 10;
+  ogiriScore += maxProgressBonus - progress * maxProgressBonus;
+
   const { error: insertAnswerError } = await supabase.from("answers").insert({
     id: v1.generate().toString(),
     answer: answer,
     ogiri_id: ogiriId,
     user_id: userId,
-    status: "waiting",
+    status: "complete",
+    score: ogiriScore,
+    evaluation: ogiriReason,
   });
   const supabaseInsertAnswerError = supabaseErrorResponse(insertAnswerError);
   if (supabaseInsertAnswerError) return supabaseInsertAnswerError;
