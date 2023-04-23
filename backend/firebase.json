@@ -2,7 +2,7 @@
   "hosting": {
     "rewrites": [
       {
-        "source": "**",
+        "source": "/api/**",
         "run": {
           "serviceId": "ogiri-core",
           "region": "asia-northeast1"
