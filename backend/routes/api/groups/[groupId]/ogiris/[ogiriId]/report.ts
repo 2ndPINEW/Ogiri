@@ -16,27 +16,31 @@ export const handler = async (req: Request, ctx: HandlerContext) => {
     .from("ogiris")
     .select(
       `
-      ogiri_id,
+      id,
       created_at,
       odai,
       group_id,
       ended_at,
       answers (
-        answer_id,
+        id,
         created_at,
         answer,
         score,
         evaluation,
-        user_id,
         status,
         users (
-          user_id,
+          id,
           name,
           icon_url
         )
+      ),
+      groups (
+        id,
+        name,
+        icon_url     
       )`
     )
-    .eq("ogiri_id", ogiriId)
+    .eq("id", ogiriId)
     .eq("group_id", groupId);
 
   const supabaseError = supabaseErrorResponse(error);

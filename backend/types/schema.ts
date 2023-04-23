@@ -37,9 +37,9 @@ export interface Database {
       answers: {
         Row: {
           answer: string
-          answer_id: string
           created_at: string
           evaluation: string | null
+          id: string
           ogiri_id: string
           score: number | null
           status: string
@@ -47,9 +47,9 @@ export interface Database {
         }
         Insert: {
           answer: string
-          answer_id: string
           created_at?: string
           evaluation?: string | null
+          id: string
           ogiri_id: string
           score?: number | null
           status: string
@@ -57,9 +57,9 @@ export interface Database {
         }
         Update: {
           answer?: string
-          answer_id?: string
           created_at?: string
           evaluation?: string | null
+          id?: string
           ogiri_id?: string
           score?: number | null
           status?: string
@@ -69,19 +69,22 @@ export interface Database {
       groups: {
         Row: {
           created_at: string
-          group_id: string
+          icon_url: string
+          id: string
           name: string
           user_ids: string[]
         }
         Insert: {
           created_at?: string
-          group_id: string
+          icon_url: string
+          id: string
           name: string
           user_ids: string[]
         }
         Update: {
           created_at?: string
-          group_id?: string
+          icon_url?: string
+          id?: string
           name?: string
           user_ids?: string[]
         }
@@ -105,42 +108,42 @@ export interface Database {
           created_at: string
           ended_at: string
           group_id: string
+          id: string
           odai: string
-          ogiri_id: string
         }
         Insert: {
           created_at?: string
           ended_at: string
           group_id: string
+          id: string
           odai: string
-          ogiri_id: string
         }
         Update: {
           created_at?: string
           ended_at?: string
           group_id?: string
+          id?: string
           odai?: string
-          ogiri_id?: string
         }
       }
       users: {
         Row: {
           created_at: string
           icon_url: string | null
+          id: string
           name: string
-          user_id: string
         }
         Insert: {
           created_at?: string
           icon_url?: string | null
+          id: string
           name: string
-          user_id: string
         }
         Update: {
           created_at?: string
           icon_url?: string | null
+          id?: string
           name?: string
-          user_id?: string
         }
       }
     }
@@ -148,58 +151,7 @@ export interface Database {
       [_ in never]: never
     }
     Functions: {
-      get_groups: {
-        Args: Record<PropertyKey, never>
-        Returns: {
-          id: string
-          created_at: string
-          name: string
-          users: Json
-        }[]
-      }
-      get_ogiris: {
-        Args: {
-          p_group_id: string
-          p_ogiri_id: string
-        }
-        Returns: {
-          id: string
-          created_at: string
-          ended_at: string
-          odai: string
-          answers: Json
-          "group.id": string
-          "group.name": string
-        }[]
-      }
-      get_ogiris_from_group_id: {
-        Args: {
-          p_group_id: string
-        }
-        Returns: {
-          id: string
-          created_at: string
-          ended_at: string
-          odai: string
-          answers: Json
-          "group.id": string
-          "group.name": string
-        }[]
-      }
-      get_ogiris_from_ogiri_id: {
-        Args: {
-          p_ogiri_id: string
-        }
-        Returns: {
-          id: string
-          created_at: string
-          ended_at: string
-          odai: string
-          answers: Json
-          "group.id": string
-          "group.name": string
-        }[]
-      }
+      [_ in never]: never
     }
     Enums: {
       [_ in never]: never
