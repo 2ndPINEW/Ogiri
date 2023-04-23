@@ -48,9 +48,7 @@ export const handler = async (req: Request, ctx: HandlerContext) => {
   const isAllComplete = answers.every((answer) => answer.status === "complete");
 
   const headers = {
-    "Cache-Control": isAllComplete
-      ? "max-age=3600, s-max-age=3600"
-      : "no-cache",
+    "Cache-Control": isAllComplete ? "max-age=0, s-maxage=3600" : "no-cache",
   };
 
   return new Response(JSON.stringify(data), { headers });
