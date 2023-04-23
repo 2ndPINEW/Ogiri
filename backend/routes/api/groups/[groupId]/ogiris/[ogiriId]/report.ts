@@ -59,9 +59,11 @@ export const handler = async (req: Request, ctx: HandlerContext) => {
       ? ogiri.answers
       : [ogiri.answers]
     : [];
-  const isAllComplete = answers.every((answer) => answer.status === "complete");
+  const isComplete =
+    answers.every((answer) => answer.status === "complete") &&
+    new Date(ogiri.ended_at) < new Date();
 
-  if (isAllComplete) {
+  if (isComplete) {
     ogiri.answers = answers.sort((a, b) => {
       if (!a.score || !b.score) return 0;
       if (a.score > b.score) return -1;
@@ -71,7 +73,7 @@ export const handler = async (req: Request, ctx: HandlerContext) => {
   }
 
   const headers = {
-    "Cache-Control": isAllComplete
+    "Cache-Control": isComplete
       ? "public, max-age=0, s-maxage=3600"
       : "public, max-age=0, s-maxage=10",
   };

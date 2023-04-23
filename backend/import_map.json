@@ -9,6 +9,7 @@
     "dotenv": "https://deno.land/std@0.167.0/dotenv/mod.ts",
     "@supabase/supabase-js": "https://esm.sh/@supabase/supabase-js",
     "firebase-app": "https://www.gstatic.com/firebasejs/9.8.1/firebase-app.js",
-    "firebase-firestore": "https://www.gstatic.com/firebasejs/9.8.1/firebase-firestore.js"
+    "firebase-firestore": "https://www.gstatic.com/firebasejs/9.8.1/firebase-firestore.js",
+    "std/uuid": "https://deno.land/std@0.184.0/uuid/mod.ts"
   }
 }
