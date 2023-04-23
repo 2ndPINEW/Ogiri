@@ -63,14 +63,12 @@ export const handler = async (req: Request, ctx: HandlerContext) => {
     answers.every((answer) => answer.status === "complete") &&
     new Date(ogiri.ended_at) < new Date();
 
-  if (isComplete) {
-    ogiri.answers = answers.sort((a, b) => {
-      if (!a.score || !b.score) return 0;
-      if (a.score > b.score) return -1;
-      if (a.score < b.score) return 1;
-      return 0;
-    });
-  }
+  ogiri.answers = answers.sort((a, b) => {
+    if (!a.score || !b.score) return 0;
+    if (a.score > b.score) return -1;
+    if (a.score < b.score) return 1;
+    return 0;
+  });
 
   const headers = {
     "Cache-Control": isComplete
