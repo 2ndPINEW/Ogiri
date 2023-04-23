@@ -37,48 +37,51 @@ export interface Database {
       answers: {
         Row: {
           answer: string
+          answer_id: string
           created_at: string
           evaluation: string | null
-          id: string
+          ogiri_id: string
           score: number | null
-          status: string | null
+          status: string
           user_id: string
         }
         Insert: {
           answer: string
+          answer_id: string
           created_at?: string
           evaluation?: string | null
-          id: string
+          ogiri_id: string
           score?: number | null
-          status?: string | null
+          status: string
           user_id: string
         }
         Update: {
           answer?: string
+          answer_id?: string
           created_at?: string
           evaluation?: string | null
-          id?: string
+          ogiri_id?: string
           score?: number | null
-          status?: string | null
+          status?: string
           user_id?: string
         }
       }
       groups: {
         Row: {
           created_at: string
-          id: string
+          group_id: string
           name: string
           user_ids: string[]
         }
         Insert: {
           created_at?: string
-          id: string
+          group_id: string
           name: string
           user_ids: string[]
         }
         Update: {
           created_at?: string
-          id?: string
+          group_id?: string
           name?: string
           user_ids?: string[]
         }
@@ -99,48 +102,45 @@ export interface Database {
       }
       ogiris: {
         Row: {
-          answer_ids: string[]
           created_at: string
           ended_at: string
           group_id: string
-          id: string
           odai: string
+          ogiri_id: string
         }
         Insert: {
-          answer_ids: string[]
           created_at?: string
           ended_at: string
           group_id: string
-          id: string
           odai: string
+          ogiri_id: string
         }
         Update: {
-          answer_ids?: string[]
           created_at?: string
           ended_at?: string
           group_id?: string
-          id?: string
           odai?: string
+          ogiri_id?: string
         }
       }
       users: {
         Row: {
           created_at: string
           icon_url: string | null
-          id: string
           name: string
+          user_id: string
         }
         Insert: {
           created_at?: string
           icon_url?: string | null
-          id: string
           name: string
+          user_id: string
         }
         Update: {
           created_at?: string
           icon_url?: string | null
-          id?: string
           name?: string
+          user_id?: string
         }
       }
     }
