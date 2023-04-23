@@ -50,7 +50,7 @@ export const handler = async (req: Request, ctx: HandlerContext) => {
   const headers = {
     "Cache-Control": isAllComplete
       ? "public, max-age=0, s-maxage=3600"
-      : "public, no-cache",
+      : "public, max-age=0, s-maxage=10",
   };
 
   return new Response(JSON.stringify(data), { headers });
