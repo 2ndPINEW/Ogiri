@@ -61,6 +61,15 @@ export const handler = async (req: Request, ctx: HandlerContext) => {
     : [];
   const isAllComplete = answers.every((answer) => answer.status === "complete");
 
+  if (isAllComplete) {
+    ogiri.answers = answers.sort((a, b) => {
+      if (!a.score || !b.score) return 0;
+      if (a.score > b.score) return -1;
+      if (a.score < b.score) return 1;
+      return 0;
+    });
+  }
+
   const headers = {
     "Cache-Control": isAllComplete
       ? "public, max-age=0, s-maxage=3600"
