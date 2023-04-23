@@ -72,6 +72,9 @@ export const handler = async (req: Request, ctx: HandlerContext) => {
     );
   }
 
+  // TODO: 同じ回答がないかチェックする
+  // TODO: ユーザーが回答済みかどうかチェックする？複数回答してもいい？
+
   // TODO: 採点はここでしないで、バッチ処理でするようにする
   const durationTime =
     new Date(ogiri.ended_at).getTime() - new Date(ogiri.created_at).getTime();
