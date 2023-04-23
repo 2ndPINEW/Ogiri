@@ -1,6 +1,6 @@
 import { HandlerContext } from "$fresh/server.ts";
-import { supabase } from "../../../core/db/supabase.ts";
-import { SuccessString, createApiErrorString } from "../../../util/api.ts";
+import { supabase, supabaseErrorResponse } from "../../../core/db/supabase.ts";
+import { SuccessString } from "../../../util/api.ts";
 import {
   bodyPropertyCheck,
   isResponse,
@@ -33,18 +33,10 @@ export const handler = async (req: Request, _ctx: HandlerContext) => {
 
   const { error } = await supabase
     .from("groups")
-    .insert([{ id: groupId, name: groupName }]);
+    .insert([{ id: groupId, name: groupName, user_ids: [] }]);
 
-  if (error) {
-    return new Response(
-      createApiErrorString({
-        message: error.message,
-        details: error.details,
-        hint: error.hint,
-        status: 503,
-      }),
-      { status: 503 }
-    );
-  }
+  const supabaseError = supabaseErrorResponse(error);
+  if (supabaseError) return supabaseError;
+
   return new Response(SuccessString);
 };

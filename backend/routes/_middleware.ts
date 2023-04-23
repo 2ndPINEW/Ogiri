@@ -28,6 +28,9 @@ export async function handler(
   ctx: MiddlewareHandlerContext<State>
 ) {
   const resp = await ctx.next();
+  if (!resp.headers.has("Cache-Control")) {
+    resp.headers.set("Cache-Control", "no-cache");
+  }
   if (resp.status === 404) {
     return fallbackHandler(req, resp);
   }
