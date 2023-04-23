@@ -1,0 +1,13 @@
+{
+  "hosting": {
+    "rewrites": [
+      {
+        "source": "**",
+        "run": {
+          "serviceId": "ogiri-core",
+          "region": "asia-northeast1"
+        }
+      }
+    ]
+  }
+}

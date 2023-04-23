@@ -1,6 +1,8 @@
 # Compiled output (ビルドしたフロントのコード)
 static/*
+.firebase/*
 
 node_modules
+firebase-debug.log
 
 .env
