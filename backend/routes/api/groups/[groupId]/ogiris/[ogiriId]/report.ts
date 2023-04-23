@@ -19,7 +19,6 @@ export const handler = async (req: Request, ctx: HandlerContext) => {
       id,
       created_at,
       odai,
-      group_id,
       ended_at,
       answers (
         id,
