@@ -10,4 +10,4 @@ COPY backend .
 COPY --from=frontendBuilder app/frontend/dist static
 RUN deno cache main.ts --import-map=import_map.json --lock=deno.lock --lock-write
 EXPOSE 8080
-CMD ["run", "-A", "main.ts"]
+CMD ["deno", "task", "start"]

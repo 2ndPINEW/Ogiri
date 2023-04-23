@@ -9,4 +9,4 @@ import manifest from "./fresh.gen.ts";
 import { initDotEnv } from "./util/dotenv.ts";
 await initDotEnv();
 
-await start(manifest);
+await start(manifest, { port: 8080 });
