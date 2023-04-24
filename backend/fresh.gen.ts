@@ -9,8 +9,7 @@ import * as $2 from "./routes/api/groups/[groupId]/ogiris/[ogiriId]/report.ts";
 import * as $3 from "./routes/api/groups/[groupId]/ogiris/new.ts";
 import * as $4 from "./routes/api/groups/create.ts";
 import * as $5 from "./routes/api/hc/index.ts";
-import * as $6 from "./routes/api/test.ts";
-import * as $7 from "./routes/api/users/create.ts";
+import * as $6 from "./routes/api/users/create.ts";
 
 const manifest = {
   routes: {
@@ -20,8 +19,7 @@ const manifest = {
     "./routes/api/groups/[groupId]/ogiris/new.ts": $3,
     "./routes/api/groups/create.ts": $4,
     "./routes/api/hc/index.ts": $5,
-    "./routes/api/test.ts": $6,
-    "./routes/api/users/create.ts": $7,
+    "./routes/api/users/create.ts": $6,
   },
   islands: {},
   baseUrl: import.meta.url,
