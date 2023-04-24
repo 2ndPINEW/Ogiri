@@ -20,6 +20,10 @@ const requestBodyProperties = [
     key: "groupName",
     type: "string",
   },
+  {
+    key: "iconUrl",
+    type: "string",
+  },
 ] as const;
 
 export const handler = async (req: Request, _ctx: HandlerContext) => {
@@ -29,11 +33,11 @@ export const handler = async (req: Request, _ctx: HandlerContext) => {
   const bodyProperty = await bodyPropertyCheck(req, requestBodyProperties);
   if (isResponse(bodyProperty)) return bodyProperty;
 
-  const { groupId, groupName } = bodyProperty;
+  const { groupId, groupName, iconUrl } = bodyProperty;
 
   const { error } = await supabase
     .from("groups")
-    .insert([{ id: groupId, name: groupName, user_ids: [] }]);
+    .insert([{ id: groupId, name: groupName, icon_url: iconUrl }]);
 
   const supabaseError = supabaseErrorResponse(error);
   if (supabaseError) return supabaseError;

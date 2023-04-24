@@ -72,21 +72,18 @@ export interface Database {
           icon_url: string
           id: string
           name: string
-          user_ids: string[]
         }
         Insert: {
           created_at?: string
           icon_url: string
           id: string
           name: string
-          user_ids: string[]
         }
         Update: {
           created_at?: string
           icon_url?: string
           id?: string
           name?: string
-          user_ids?: string[]
         }
       }
       hc: {
