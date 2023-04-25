@@ -4,7 +4,10 @@ import {
   supabaseErrorResponse,
 } from "../../../../../../core/db/supabase.ts";
 import { scoring } from "../../../../../../core/ogiri/scoring.ts";
-import { createApiErrorString } from "../../../../../../util/api.ts";
+import {
+  SuccessString,
+  createApiErrorString,
+} from "../../../../../../util/api.ts";
 import {
   bodyPropertyCheck,
   isResponse,
@@ -104,5 +107,5 @@ export const handler = async (req: Request, ctx: HandlerContext) => {
   const supabaseInsertAnswerError = supabaseErrorResponse(insertAnswerError);
   if (supabaseInsertAnswerError) return supabaseInsertAnswerError;
 
-  return new Response(JSON.stringify(ctx.params));
+  return new Response(SuccessString);
 };
