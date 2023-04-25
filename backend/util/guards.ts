@@ -7,7 +7,7 @@ type Method = "GET" | "POST" | "PUT" | "DELETE" | "PATCH" | "HEAD" | "OPTIONS";
  * 許可したメソッド以外なら405を返す
  */
 export const methodGuard = (req: Request, allowMethods: Method[]) => {
-  if (!allowMethods.includes(req.method)) {
+  if (!allowMethods.includes(req.method as Method)) {
     return new Response(
       createApiErrorString({
         message: "Method not allowed",
