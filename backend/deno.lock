@@ -168,5 +168,24 @@
     "https://esm.sh/v116/es5-ext@0.10.62/deno/global.js": "5fe45a955818afd1e0e8ad67eeb50f62a4b543588aefd727a1f9b732121a33fa",
     "https://esm.sh/v116/node.ns.d.ts": "0fb081f0cd2150931bd54baa04f31466abd9ca701fd9060d07931402cf8367ba",
     "https://esm.sh/v116/websocket@1.0.34/deno/websocket.mjs": "d2ce3b66220b1399ace959015f493ef00287b73b2aa5f2017e1c61f11e4b40cb"
+  },
+  "npm": {
+    "specifiers": {
+      "simple-prompt-executer": "simple-prompt-executer@1.0.0"
+    },
+    "packages": {
+      "simple-prompt-executer@0.0.4": {
+        "integrity": "sha512-xbGhC1IJQL8k2E4AsZY4QNnlo0jYKCbrgDub15wBWSXmz+oQkMjcPBurCIIF2gjam/K22ZCR+6+onqA8u7jgKQ==",
+        "dependencies": {}
+      },
+      "simple-prompt-executer@0.0.7": {
+        "integrity": "sha512-5o6ybCIKn8CcTNiFp4QbMipPyH0AjrbWomQsz9GX9IflFtrA2U2W77fu4CADlT5Du7Ary4Cjb0SK/doWsC4MwQ==",
+        "dependencies": {}
+      },
+      "simple-prompt-executer@1.0.0": {
+        "integrity": "sha512-dMC2r8pDnislyg7xIhu3rQ72x1HEAOragMEhv4CKotQeu7G+v1Q6ehBBijiFfhPuTMWAFiJlk1gZRrQDozsF/w==",
+        "dependencies": {}
+      }
+    }
   }
 }

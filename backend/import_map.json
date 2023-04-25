@@ -10,6 +10,7 @@
     "@supabase/supabase-js": "https://esm.sh/@supabase/supabase-js",
     "firebase-app": "https://www.gstatic.com/firebasejs/9.8.1/firebase-app.js",
     "firebase-firestore": "https://www.gstatic.com/firebasejs/9.8.1/firebase-firestore.js",
-    "std/uuid": "https://deno.land/std@0.184.0/uuid/mod.ts"
+    "std/uuid": "https://deno.land/std@0.184.0/uuid/mod.ts",
+    "simple-prompt-executer": "npm:simple-prompt-executer"
   }
 }
