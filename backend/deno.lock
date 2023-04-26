@@ -171,7 +171,7 @@
   },
   "npm": {
     "specifiers": {
-      "simple-prompt-executer": "simple-prompt-executer@1.0.0"
+      "simple-prompt-executer": "simple-prompt-executer@1.0.2"
     },
     "packages": {
       "simple-prompt-executer@0.0.4": {
@@ -184,6 +184,10 @@
       },
       "simple-prompt-executer@1.0.0": {
         "integrity": "sha512-dMC2r8pDnislyg7xIhu3rQ72x1HEAOragMEhv4CKotQeu7G+v1Q6ehBBijiFfhPuTMWAFiJlk1gZRrQDozsF/w==",
+        "dependencies": {}
+      },
+      "simple-prompt-executer@1.0.2": {
+        "integrity": "sha512-9thcXNYpLyXBg4ynWQ+uIIiWF4oy8/HHHfoChjoFK6u8upBPHi6eyv0Vcd0ZTBtwpltRp4+rBSH9tquiIui78g==",
         "dependencies": {}
       }
     }
