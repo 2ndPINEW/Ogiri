@@ -3,7 +3,7 @@ import { supabase } from "../../../core/db/supabase.ts";
 import { scoring } from "../../../core/ogiri/scoring.ts";
 import { SuccessString } from "../../../util/api.ts";
 
-export const handler = async (req: Request, ctx: HandlerContext) => {
+export const handler = async (_req: Request, _ctx: HandlerContext) => {
   // 大喜利が存在するかチェック
   const { data: answers } = await supabase
     .from("answers")
@@ -20,14 +20,15 @@ export const handler = async (req: Request, ctx: HandlerContext) => {
         ? answer.ogiris[0]
         : answer.ogiris;
       if (!ogiri) {
-        // TODO: status waitingでogiriがない場合はデータ変ちゃうか
+        // TODO: status waitingでogiriがない場合はデータ変だから消したりしたほうがいいかも
         return;
       }
       const durationTime =
         new Date(ogiri.ended_at).getTime() -
         new Date(ogiri.created_at).getTime();
       const diffTime =
-        new Date().getTime() - new Date(ogiri.created_at).getTime();
+        new Date(answer.created_at).getTime() -
+        new Date(ogiri.created_at).getTime();
       const progress = diffTime / durationTime;
 
       let ogiriScore = 60;
