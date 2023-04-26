@@ -2,9 +2,6 @@
   "deno.enable": true,
   "deno.enablePaths": [
     "./backend",
-    "./slack-bot",
-    "./request-time-off-app",
-    "./test"
   ],
   "[typescript]": {
     "editor.formatOnSave": true,
