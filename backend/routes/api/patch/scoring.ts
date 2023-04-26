@@ -10,7 +10,6 @@ export const handler = async (req: Request, ctx: HandlerContext) => {
     .select("*, ogiris(odai, created_at, ended_at)")
     .eq("status", "waiting");
 
-  console.log(answers);
   if (!answers || answers.length === 0) {
     return new Response(SuccessString);
   }
