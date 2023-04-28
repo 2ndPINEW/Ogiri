@@ -1,3 +1,5 @@
+import { API_BASE } from "@/constants";
+
 export interface ResponseData {
   id: string;
   created_at: string;
@@ -33,7 +35,7 @@ export const retrieveReportData = async (
   groupId: string,
   ogiriId: string
 ): Promise<ResponseData> => {
-  const url = `https://ogiri-ace1c.web.app/api/groups/${groupId}/ogiris/${ogiriId}/report`;
+  const url = `${API_BASE}groups/${groupId}/ogiris/${ogiriId}/report`;
   const response = await fetch(url);
   return await response.json();
 };
