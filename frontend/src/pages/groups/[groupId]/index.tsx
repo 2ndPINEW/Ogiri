@@ -28,7 +28,7 @@ function Page({
   group,
   ogiris,
 }: InferGetServerSidePropsType<typeof getServerSideProps>) {
-  const answers = ogiris.map((ogiri: Ogiri) => {
+  const ogiriElements = ogiris.map((ogiri: Ogiri) => {
     return (
       <div key={ogiri.id}>
         <h3>{ogiri.odai}</h3>
@@ -39,7 +39,7 @@ function Page({
   return (
     <div>
       <h1>{group.name}</h1>
-      {answers}
+      {ogiriElements}
     </div>
   );
 }
