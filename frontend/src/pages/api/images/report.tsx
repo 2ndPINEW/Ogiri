@@ -5,7 +5,7 @@ export const config = {
 };
 
 // お題に対する回答の画像
-export default function hundler(req: NextRequest) {
+export default function handler(req: NextRequest) {
   return new ImageResponse(
     (
       <div

@@ -5,7 +5,7 @@ export const config = {
 };
 
 // 勝ったユーザーを表示する
-export default function hundler(req: NextRequest) {
+export default function handler(req: NextRequest) {
   return new ImageResponse(
     (
       <div

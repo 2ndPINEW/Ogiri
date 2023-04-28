@@ -5,7 +5,7 @@ export const config = {
 };
 
 // お題の画像
-export default function hundler(req: NextRequest) {
+export default function handler(req: NextRequest) {
   const { searchParams } = req.nextUrl;
   const odai = searchParams.get("odai");
 
