@@ -7,7 +7,17 @@
           "serviceId": "ogiri-core",
           "region": "asia-northeast1"
         }
+      },
+      {
+        "source": "**",
+        "destination": "/index.html"
       }
+    ],
+    "public": "frontend/dist",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
     ]
   }
 }
