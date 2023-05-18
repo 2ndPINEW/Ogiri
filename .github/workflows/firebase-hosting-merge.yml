@@ -15,7 +15,7 @@ jobs:
         with:
           version: 7.29.1
       - run: cd frontend && pnpm install
-      - run: cd frontend && pnpm build
+      - run: cd frontend && pnpm build:prod
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: "${{ secrets.GITHUB_TOKEN }}"
