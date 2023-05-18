@@ -1,0 +1,14 @@
+:root {
+  --color-background: #FCCE1D;
+
+  --color-on-card: #ffffff;
+  --color-card-background: #DFB40D;
+  --color-card-border: #d5c99c;
+
+  --color-on-button: #ffffff;
+  --color-button: #B7940D;
+
+  --color-accent: #1976d2;
+
+  --transition-time: 200ms;
+}
