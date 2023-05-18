@@ -53,17 +53,16 @@ export const handler = async (req: Request, ctx: HandlerContext) => {
   // 終了時間を計算
   const endTime = new Date(Date.now() + limitS * 1000);
 
+  const data = {
+    id: v1.generate().toString(),
+    ended_at: endTime.toISOString(),
+    group_id: groupId,
+    odai: ogiriOdai,
+  };
   // DBに保存
-  const { error } = await supabase.from("ogiris").insert([
-    {
-      id: v1.generate().toString(),
-      ended_at: endTime.toISOString(),
-      group_id: groupId,
-      odai: ogiriOdai,
-    },
-  ]);
+  const { error } = await supabase.from("ogiris").insert([data]);
   const supabaseError = supabaseErrorResponse(error);
   if (supabaseError) return supabaseError;
 
-  return new Response(JSON.stringify(ctx.params));
+  return new Response(JSON.stringify(data));
 };
