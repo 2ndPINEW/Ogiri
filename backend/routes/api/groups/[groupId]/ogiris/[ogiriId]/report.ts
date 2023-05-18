@@ -72,7 +72,7 @@ export const handler = async (req: Request, ctx: HandlerContext) => {
 
   const headers = {
     "Cache-Control": isComplete
-      ? "public, max-age=0, s-maxage=3600"
+      ? "public, max-age=0, s-maxage=86400"
       : "public, max-age=0, s-maxage=10",
   };
 
