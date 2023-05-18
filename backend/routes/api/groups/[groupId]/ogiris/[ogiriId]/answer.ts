@@ -30,6 +30,16 @@ export const handler = async (req: Request, ctx: HandlerContext) => {
   const { answer, userId } = bodyProperty;
   const { groupId, ogiriId } = ctx.params;
 
+  if (answer.length > 100) {
+    return new Response(
+      createApiErrorString({
+        message: "回答が長すぎます。短くして下さい",
+        status: 400,
+      }),
+      { status: 400 }
+    );
+  }
+
   // 大喜利が存在するかチェック
   const { data: ogiris } = await supabase
     .from("ogiris")
@@ -52,7 +62,7 @@ export const handler = async (req: Request, ctx: HandlerContext) => {
   if (isEnd) {
     return new Response(
       createApiErrorString({
-        message: "This ogiri is already ended",
+        message: "この大喜利はすでに終了しています。",
         status: 503,
       }),
       { status: 503 }
