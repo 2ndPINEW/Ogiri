@@ -26,7 +26,7 @@ export function createApiErrorString(options: ApiError): string {
 
 export const Success = {
   message: "Success",
-  status: 200,
+  status: "SUCCESS",
 };
 
 export const SuccessString = JSON.stringify(Success);
