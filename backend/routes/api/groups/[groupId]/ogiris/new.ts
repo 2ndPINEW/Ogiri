@@ -41,7 +41,7 @@ export const handler = async (req: Request, ctx: HandlerContext) => {
     return new Response(
       createApiErrorString({
         message: "No group found",
-        status: 404,
+        status: "NOT_FOUND",
       }),
       { status: 404 }
     );

@@ -18,7 +18,7 @@ export const supabaseErrorResponse = (error: PostgrestError | null) => {
       message: error.message,
       details: error.details,
       hint: error.hint,
-      status: 503,
+      status: "DB_ERROR",
     }),
     { status: 503 }
   );

@@ -34,7 +34,7 @@ export const handler = async (req: Request, ctx: HandlerContext) => {
     return new Response(
       createApiErrorString({
         message: "回答が長すぎます。短くして下さい",
-        status: 400,
+        status: "ANSWER_TO_LONG",
       }),
       { status: 400 }
     );
@@ -51,7 +51,7 @@ export const handler = async (req: Request, ctx: HandlerContext) => {
     return new Response(
       createApiErrorString({
         message: "Group not found",
-        status: 404,
+        status: "NOT_FOUND",
       }),
       { status: 404 }
     );
@@ -63,7 +63,7 @@ export const handler = async (req: Request, ctx: HandlerContext) => {
     return new Response(
       createApiErrorString({
         message: "この大喜利はすでに終了しています。",
-        status: 503,
+        status: "ALREADY_ENDED",
       }),
       { status: 503 }
     );
@@ -78,7 +78,7 @@ export const handler = async (req: Request, ctx: HandlerContext) => {
     return new Response(
       createApiErrorString({
         message: "User not found",
-        status: 503,
+        status: "USER_NOT_FOUND",
       }),
       { status: 503 }
     );

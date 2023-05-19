@@ -11,7 +11,7 @@ export const methodGuard = (req: Request, allowMethods: Method[]) => {
     return new Response(
       createApiErrorString({
         message: "Method not allowed",
-        status: 405,
+        status: "BAD_REQUEST",
       }),
       { status: 405 }
     );
@@ -49,7 +49,7 @@ export const bodyPropertyCheck: <P extends readonly Property[]>(
     return new Response(
       createApiErrorString({
         message: "Bad Request request body is not valid JSON",
-        status: 400,
+        status: "BAD_REQUEST",
       }),
       { status: 400 }
     );
@@ -70,7 +70,7 @@ export const bodyPropertyCheck: <P extends readonly Property[]>(
         message: `Bad Request request body is missing property ${notExistProperties.join(
           ", "
         )}`,
-        status: 400,
+        status: "BAD_REQUEST",
       }),
       { status: 400 }
     );
@@ -92,7 +92,7 @@ export const bodyPropertyCheck: <P extends readonly Property[]>(
         message: `Bad Request request invalid property ${notValidProperties.join(
           ", "
         )}`,
-        status: 400,
+        status: "BAD_REQUEST",
       }),
       { status: 400 }
     );

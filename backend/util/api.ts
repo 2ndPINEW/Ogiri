@@ -1,6 +1,15 @@
+type ApiErrorStatus =
+  | "DB_ERROR"
+  | "NOT_FOUND"
+  | "USER_NOT_FOUND"
+  | "ANSWER_TO_LONG"
+  | "ALREADY_ENDED"
+  | "BAD_REQUEST"
+  | "UNKNOWN_ERROR";
+
 export interface ApiError {
   message: string;
-  status: number;
+  status: ApiErrorStatus;
   details?: string;
   hint?: string;
 }
