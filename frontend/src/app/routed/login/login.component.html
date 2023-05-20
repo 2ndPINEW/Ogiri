@@ -1,7 +1,10 @@
 <div class="logo-wrapper">
-  <input type="text" placeholder="なまえ">
+  <input type="text" placeholder="名前を入力" [(ngModel)]="userName">
 </div>
 
+<div class="navigation-ui">
+  <button class="button" (click)="login()">開始する</button>
+</div>
 
 <svg id="clouds" xmlns="http://www.w3.org/2000/svg" width="2611.084" height="485.677" viewBox="0 0 2611.084 485.677">
   <title>Gray Clouds Background</title>
