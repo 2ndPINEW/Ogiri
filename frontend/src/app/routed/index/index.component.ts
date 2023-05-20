@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { OgiriService } from 'src/app/shared/services/ogiri.service';
 
 @Component({
@@ -7,24 +8,13 @@ import { OgiriService } from 'src/app/shared/services/ogiri.service';
   styleUrls: ['./index.component.scss'],
 })
 export class IndexComponent {
-  constructor(private ogiriService: OgiriService) {}
+  constructor(private ogiriService: OgiriService, private router: Router) {}
 
   ngOnInit(): void {
     this.ogiriService.openOgiris$().subscribe((res) => {
-      console.log(res);
-      this.ogiriService
-        .reportOgiri$({ ogiriId: res[0].id })
-        .subscribe((res) => {
-          console.log(res);
-        });
-      // this.ogiriService
-      //   .answerOgiri$({
-      //     ogiriId: res[0].id,
-      //     answer: 'ヒマラヤ山脈が好き',
-      //   })
-      //   .subscribe((res) => {
-      //     console.log(res);
-      //   });
+      if (res.length > 0) {
+        this.router.navigate(['play']);
+      }
     });
   }
 }
