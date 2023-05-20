@@ -126,18 +126,21 @@ export interface Database {
       users: {
         Row: {
           created_at: string
+          group_id: string | null
           icon_url: string | null
           id: string
           name: string
         }
         Insert: {
           created_at?: string
+          group_id?: string | null
           icon_url?: string | null
           id: string
           name: string
         }
         Update: {
           created_at?: string
+          group_id?: string | null
           icon_url?: string | null
           id?: string
           name?: string

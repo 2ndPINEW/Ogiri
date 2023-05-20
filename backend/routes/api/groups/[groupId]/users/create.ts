@@ -1,11 +1,14 @@
 import { HandlerContext } from "$fresh/server.ts";
-import { supabase, supabaseErrorResponse } from "../../../core/db/supabase.ts";
-import { SuccessString } from "../../../util/api.ts";
+import {
+  supabase,
+  supabaseErrorResponse,
+} from "../../../../../core/db/supabase.ts";
+import { SuccessString } from "../../../../../util/api.ts";
 import {
   bodyPropertyCheck,
   isResponse,
   methodGuard,
-} from "../../../util/guards.ts";
+} from "../../../../../util/guards.ts";
 
 const requestBodyProperties = [
   {
@@ -22,7 +25,9 @@ const requestBodyProperties = [
   },
 ] as const;
 
-export const handler = async (req: Request, _ctx: HandlerContext) => {
+export const handler = async (req: Request, ctx: HandlerContext) => {
+  const { groupId } = ctx.params;
+
   const methodGuardResponse = methodGuard(req, ["POST"]);
   if (methodGuardResponse) return methodGuardResponse;
 
@@ -33,7 +38,12 @@ export const handler = async (req: Request, _ctx: HandlerContext) => {
 
   const { error: insertUserError } = await supabase
     .from("users")
-    .insert({ id: userId, name: userName, icon_url: iconUrl });
+    .insert({
+      id: userId,
+      name: userName,
+      icon_url: iconUrl,
+      group_id: groupId,
+    });
   const supabaseInsertUserError = supabaseErrorResponse(insertUserError);
   if (supabaseInsertUserError) return supabaseInsertUserError;
 
