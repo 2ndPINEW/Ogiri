@@ -9,6 +9,6 @@
     "dotenv": "https://deno.land/std@0.167.0/dotenv/mod.ts",
     "@supabase/supabase-js": "https://esm.sh/@supabase/supabase-js",
     "std/uuid": "https://deno.land/std@0.184.0/uuid/mod.ts",
-    "simple-prompt-executer": "npm:simple-prompt-executer"
+    "simple-prompt-executer": "npm:simple-prompt-executer@1.1.3"
   }
 }
