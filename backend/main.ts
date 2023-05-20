@@ -9,5 +9,5 @@ import manifest from "./fresh.gen.ts";
 import { initDotEnv } from "./util/dotenv.ts";
 await initDotEnv();
 
-const port = "8040";
+const port = Deno.env.get("PORT") || "8040";
 await start(manifest, { port: Number(port) });
