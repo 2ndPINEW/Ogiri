@@ -30,7 +30,7 @@ export const handler = async (req: Request, ctx: HandlerContext) => {
   if (!data) {
     return new Response(
       createApiErrorString({ message: "Not found", status: "NOT_FOUND" }),
-      { status: 404 }
+      { status: 200 }
     );
   }
 

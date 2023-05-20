@@ -36,7 +36,7 @@ export const handler = async (req: Request, ctx: HandlerContext) => {
         message: "回答が長すぎます。短くして下さい",
         status: "ANSWER_TO_LONG",
       }),
-      { status: 400 }
+      { status: 200 }
     );
   }
 
@@ -53,7 +53,7 @@ export const handler = async (req: Request, ctx: HandlerContext) => {
         message: "Group not found",
         status: "NOT_FOUND",
       }),
-      { status: 404 }
+      { status: 200 }
     );
   }
 
@@ -65,7 +65,7 @@ export const handler = async (req: Request, ctx: HandlerContext) => {
         message: "この大喜利はすでに終了しています。",
         status: "ALREADY_ENDED",
       }),
-      { status: 503 }
+      { status: 200 }
     );
   }
 
@@ -80,7 +80,7 @@ export const handler = async (req: Request, ctx: HandlerContext) => {
         message: "User not found",
         status: "USER_NOT_FOUND",
       }),
-      { status: 503 }
+      { status: 200 }
     );
   }
 

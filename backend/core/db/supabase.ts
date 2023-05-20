@@ -20,6 +20,6 @@ export const supabaseErrorResponse = (error: PostgrestError | null) => {
       hint: error.hint,
       status: "DB_ERROR",
     }),
-    { status: 503 }
+    { status: 200 }
   );
 };

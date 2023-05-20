@@ -43,7 +43,7 @@ export const handler = async (req: Request, ctx: HandlerContext) => {
         message: "No group found",
         status: "NOT_FOUND",
       }),
-      { status: 404 }
+      { status: 200 }
     );
   }
 

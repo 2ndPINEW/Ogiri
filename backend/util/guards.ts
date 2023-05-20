@@ -13,7 +13,7 @@ export const methodGuard = (req: Request, allowMethods: Method[]) => {
         message: "Method not allowed",
         status: "BAD_REQUEST",
       }),
-      { status: 405 }
+      { status: 200 }
     );
   }
 };
@@ -51,7 +51,7 @@ export const bodyPropertyCheck: <P extends readonly Property[]>(
         message: "Bad Request request body is not valid JSON",
         status: "BAD_REQUEST",
       }),
-      { status: 400 }
+      { status: 200 }
     );
   }
 
@@ -72,7 +72,7 @@ export const bodyPropertyCheck: <P extends readonly Property[]>(
         )}`,
         status: "BAD_REQUEST",
       }),
-      { status: 400 }
+      { status: 200 }
     );
   }
 
@@ -94,7 +94,7 @@ export const bodyPropertyCheck: <P extends readonly Property[]>(
         )}`,
         status: "BAD_REQUEST",
       }),
-      { status: 400 }
+      { status: 200 }
     );
   }
 

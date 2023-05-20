@@ -29,7 +29,7 @@ export const handler = async (req: Request, ctx: HandlerContext) => {
   if (!data || data.length <= 0) {
     return new Response(
       createApiErrorString({ message: "Not found", status: "NOT_FOUND" }),
-      { status: 404 }
+      { status: 200 }
     );
   }
 
