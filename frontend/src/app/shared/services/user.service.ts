@@ -3,6 +3,9 @@ import { v4 as uuidv4 } from 'uuid';
 import { ApiService } from './api.service';
 import { Success } from './api.interface';
 import { Injectable } from '@angular/core';
+import { environment } from 'src/environments/environment';
+
+const { groupId } = environment;
 
 const UserIdKey = 'userId';
 
@@ -28,7 +31,7 @@ export class UserService {
 
     const userId = uuidv4();
     return this.api
-      .post<Success>('users/create', {
+      .post<Success>(`groups/${groupId}/users/create`, {
         userId,
         userName,
         iconUrl: '',

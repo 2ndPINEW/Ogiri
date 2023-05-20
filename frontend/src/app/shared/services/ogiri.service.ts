@@ -2,9 +2,9 @@ import { ApiService } from './api.service';
 import { Injectable } from '@angular/core';
 import { UserService } from './user.service';
 import { Success } from './api.interface';
+import { environment } from 'src/environments/environment';
 
-const groupId = 'grandprix';
-
+const { groupId } = environment;
 @Injectable({
   providedIn: 'root',
 })
