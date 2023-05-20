@@ -7,6 +7,16 @@ const routes: Routes = [
     loadChildren: () =>
       import('./routed/index/index.module').then((m) => m.IndexModule),
   },
+  {
+    path: 'login',
+    loadChildren: () =>
+      import('./routed/login/login.module').then((m) => m.LoginModule),
+  },
+  {
+    path: 'play',
+    loadChildren: () =>
+      import('./routed/play/play.module').then((m) => m.PlayModule),
+  },
 ];
 
 @NgModule({
