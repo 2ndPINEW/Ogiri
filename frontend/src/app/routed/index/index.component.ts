@@ -12,7 +12,9 @@ export class IndexComponent {
 
   ngOnInit(): void {
     this.ogiriService.openOgiris$().subscribe((res) => {
-      if (res.length > 0) {
+      if (res.length === 1) {
+        this.router.navigate(['play', res[0].id]);
+      } else if (res.length > 1) {
         this.router.navigate(['play']);
       }
     });
