@@ -5,7 +5,8 @@ type ApiErrorStatus =
   | "ANSWER_TO_LONG"
   | "ALREADY_ENDED"
   | "BAD_REQUEST"
-  | "UNKNOWN_ERROR";
+  | "UNKNOWN_ERROR"
+  | "INVALID_API_KEY";
 
 export interface ApiError {
   message: string;

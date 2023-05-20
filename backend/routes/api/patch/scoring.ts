@@ -1,9 +1,21 @@
 import { HandlerContext } from "$fresh/server.ts";
 import { supabase } from "../../../core/db/supabase.ts";
 import { scoring } from "../../../core/ogiri/scoring.ts";
-import { SuccessString } from "../../../util/api.ts";
+import { SuccessString, createApiErrorString } from "../../../util/api.ts";
 
-export const handler = async (_req: Request, _ctx: HandlerContext) => {
+export const handler = async (req: Request, _ctx: HandlerContext) => {
+  const url = new URL(req.url);
+  const apiKey = url.searchParams.get("apiKey");
+  if (apiKey !== Deno.env.get("API_KEY")) {
+    return new Response(
+      createApiErrorString({
+        message: "APIキーが不正です",
+        status: "INVALID_API_KEY",
+      }),
+      { status: 200 }
+    );
+  }
+
   // 大喜利が存在するかチェック
   const { data: answers } = await supabase
     .from("answers")

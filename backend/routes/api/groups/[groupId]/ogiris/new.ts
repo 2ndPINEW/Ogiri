@@ -21,6 +21,10 @@ const requestBodyProperties = [
     key: "limitS",
     type: "number",
   },
+  {
+    key: "apiKey",
+    type: "string",
+  },
 ] as const;
 
 export const handler = async (req: Request, ctx: HandlerContext) => {
@@ -29,8 +33,18 @@ export const handler = async (req: Request, ctx: HandlerContext) => {
 
   const bodyProperty = await bodyPropertyCheck(req, requestBodyProperties);
   if (isResponse(bodyProperty)) return bodyProperty;
-  const { odai, limitS } = bodyProperty;
+  const { odai, limitS, apiKey } = bodyProperty;
   const { groupId } = ctx.params;
+
+  if (apiKey !== Deno.env.get("API_KEY")) {
+    return new Response(
+      createApiErrorString({
+        message: "APIキーが不正です",
+        status: "INVALID_API_KEY",
+      }),
+      { status: 200 }
+    );
+  }
 
   // グループが存在するかチェック
   const { data: groups } = await supabase

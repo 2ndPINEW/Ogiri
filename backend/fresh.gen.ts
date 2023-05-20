@@ -14,7 +14,6 @@ import * as $7 from "./routes/api/groups/[groupId]/users/create.ts";
 import * as $8 from "./routes/api/groups/create.ts";
 import * as $9 from "./routes/api/hc/index.ts";
 import * as $10 from "./routes/api/patch/scoring.ts";
-import * as $11 from "./routes/api/users/create.ts";
 
 const manifest = {
   routes: {
@@ -29,7 +28,6 @@ const manifest = {
     "./routes/api/groups/create.ts": $8,
     "./routes/api/hc/index.ts": $9,
     "./routes/api/patch/scoring.ts": $10,
-    "./routes/api/users/create.ts": $11,
   },
   islands: {},
   baseUrl: import.meta.url,
