@@ -1,0 +1,5 @@
+<h1>開催中の大喜利一覧</h1>
+<div *ngFor="let ogiri of (ogiris$ | async)">
+  <div>{{ogiri.odai}}</div>
+  <div>{{formatDate(ogiri.created_at)}} ~ {{formatDate(ogiri.ended_at)}}</div>
+</div>

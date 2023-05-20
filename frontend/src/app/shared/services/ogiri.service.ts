@@ -34,14 +34,14 @@ export class OgiriService {
   }
 }
 
-interface Ogiri {
+export interface Ogiri {
   id: string;
   created_at: DateString;
   odai: string;
   ended_at: DateString;
 }
 
-interface Report {
+export interface Report {
   answers: Answer[];
   created_at: DateString;
   ended_at: DateString;
