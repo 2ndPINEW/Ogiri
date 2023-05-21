@@ -35,15 +35,24 @@
       }
     }
 
-    .card {
-      background-color: var(--color-card-background);
-      color: var(--color-on-card);
-      border-radius: 16px;
-      padding: 16px;
-      margin: 16px;
+    .report-area {
+      opacity: 0;
+      transition: all 1s ease;
 
-      a {
+      &.show {
+        opacity: 1;
+      }
+
+      .card {
+        background-color: var(--color-card-background);
         color: var(--color-on-card);
+        border-radius: 16px;
+        padding: 16px;
+        margin: 16px;
+
+        a {
+          color: var(--color-on-card);
+        }
       }
     }
   }
