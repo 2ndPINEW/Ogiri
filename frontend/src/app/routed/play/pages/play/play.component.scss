@@ -62,24 +62,46 @@
           font-size: 24px;
         }
 
-        .input {
-          width: 100%;
+        .input-line {
+          display: flex;
+          align-items: center;
+          justify-content: center;
           margin-top: 16px;
-          background-color: transparent;
-          border: none;
-          border-radius: 0;
-          border-bottom: 2px solid var(--color-on-card);
-          color: var(--color-on-card);
-          font-size: 18px;
-        }
 
-        .input:focus {
-          outline: none;
-        }
+          .input {
+            width: 100%;
+            background-color: transparent;
+            border: none;
+            border-radius: 0;
+            border-bottom: 2px solid var(--color-on-card);
+            color: var(--color-on-card);
+            font-size: 18px;
+          }
 
-        .input::placeholder {
-          color: var(--color-on-card);
-          font-size: 18px;
+          .input:focus {
+            outline: none;
+          }
+
+          .input::placeholder {
+            color: var(--color-on-card);
+            font-size: 18px;
+          }
+
+          .button {
+            background-color: var(--color-button);
+            color: var(--color-on-button);
+            border: none;
+            border-radius: 6px;
+            padding: 6px 10px;
+            cursor: pointer;
+            font-weight: bold;
+            flex-shrink: 0;
+            font-size: 12px;
+
+            &:hover {
+              opacity: 0.8;
+            }
+          }
         }
 
         .status-line {

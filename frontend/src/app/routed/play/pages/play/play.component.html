@@ -6,8 +6,10 @@
   <div class="ogiri-area" [class.show]="report">
     <div class="card">
       <h2 class="odai">{{report?.odai}}</h2>
-      <input type="text" class="input" placeholder="回答を入力" [disabled]="disabled" [(ngModel)]="answer"
-        (keydown.enter)="sendAnswer()">
+      <div class="input-line">
+        <input type="text" class="input" placeholder="回答を入力" [disabled]="disabled" [(ngModel)]="answer">
+        <button (click)="sendAnswer()" class="button" [disabled]="disabled">送信する</button>
+      </div>
       <div class="status-line">
         <div class="error">{{error}}</div>
         <div class="hint">{{hint}}</div>

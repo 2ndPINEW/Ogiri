@@ -24,7 +24,7 @@ export class PlayComponent {
   disabled = false;
   answer = '';
   error = '';
-  hint = 'エンターキーで送信';
+  hint = '';
 
   showRandomAnswer: boolean = false;
   randomAnswer: Answer | undefined;

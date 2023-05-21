@@ -41,6 +41,16 @@
       border-radius: 4px;
       padding: 6px 10px;
       font-weight: bold;
+      cursor: pointer;
+
+      &:hover {
+        opacity: 0.8;
+      }
+
+      &:disabled {
+        opacity: 0.4;
+        cursor: not-allowed;
+      }
     }
   }
 
