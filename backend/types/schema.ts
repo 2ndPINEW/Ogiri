@@ -146,6 +146,32 @@ export interface Database {
           name?: string
         }
       }
+      webhooks: {
+        Row: {
+          created_at: string
+          group_id: string | null
+          id: number
+          memo: string | null
+          type: string
+          url: string
+        }
+        Insert: {
+          created_at?: string
+          group_id?: string | null
+          id?: number
+          memo?: string | null
+          type: string
+          url: string
+        }
+        Update: {
+          created_at?: string
+          group_id?: string | null
+          id?: number
+          memo?: string | null
+          type?: string
+          url?: string
+        }
+      }
     }
     Views: {
       [_ in never]: never
