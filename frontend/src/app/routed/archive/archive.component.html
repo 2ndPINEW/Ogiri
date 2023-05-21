@@ -1,11 +1,11 @@
 <div class="main-wrapper">
   <div class="header">
-    <img src="/assets/logo.png" class="logo">
+    <a href="/" class="logo"><img src="/assets/logo.png"></a>
     <h1>アーカイブ</h1>
   </div>
 
   <div class="card" *ngFor="let ogiri of (ogiris$ | async)">
-    <a [routerLink]="[ogiri.id]">
+    <a [routerLink]="['/', 'result', ogiri.id]">
       <h2>{{ogiri.odai}}</h2>
       <div>{{formatDate(ogiri.created_at)}} ~ {{formatDate(ogiri.ended_at)}}</div>
     </a>

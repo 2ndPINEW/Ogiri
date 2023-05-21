@@ -14,7 +14,7 @@ export class ArchiveComponent {
 
   ngOnInit(): void {
     this.ogiriService.allOgiris$().subscribe((res) => {
-      this.ogiris$.next(res);
+      this.ogiris$.next(res.reverse());
     });
   }
 
