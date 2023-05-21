@@ -5,7 +5,7 @@
   </div>
   <div class="ogiri-area" [class.show]="report">
     <div class="card">
-      <div class="odai">{{report?.odai}}</div>
+      <h2 class="odai">{{report?.odai}}</h2>
       <input type="text" class="input" placeholder="回答を入力" [disabled]="disabled" [(ngModel)]="answer"
         (keydown.enter)="sendAnswer()">
       <div class="status-line">
@@ -13,8 +13,8 @@
         <div class="hint">{{hint}}</div>
       </div>
     </div>
-    <div class="other-card" [class.show]="randomAnswer">
-      <div class="ogiri">{{randomAnswer?.answer}}</div>
+    <div class="other-card" [class.show]="showRandomAnswer">
+      <h3 class="ogiri">{{randomAnswer?.answer}}</h3>
       <div class="user">{{randomAnswer?.users?.name}}</div>
     </div>
   </div>
