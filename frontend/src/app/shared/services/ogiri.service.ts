@@ -50,7 +50,7 @@ export interface Report {
   odai: string;
 }
 
-interface Answer {
+export interface Answer {
   id: string;
   created_at: DateString;
   answer: string;

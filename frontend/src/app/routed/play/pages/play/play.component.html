@@ -6,15 +6,17 @@
   <div class="ogiri-area" [class.show]="report">
     <div class="card">
       <div class="odai">{{report?.odai}}</div>
-      <input type="text" class="input" placeholder="回答を入力" [disabled]="disabled">
+      <input type="text" class="input" placeholder="回答を入力" [disabled]="disabled" [(ngModel)]="answer"
+        (keydown.enter)="sendAnswer()">
       <div class="status-line">
-        <div class="error"></div>
-        <div class="hint">エンターキーで送信</div>
+        <div class="error">{{error}}</div>
+        <div class="hint">{{hint}}</div>
       </div>
     </div>
-  </div>
-  <div *ngFor="let answer of report?.answers">
-    {{answer.answer}}
+    <div class="other-card" [class.show]="randomAnswer">
+      <div class="ogiri">{{randomAnswer?.answer}}</div>
+      <div class="user">{{randomAnswer?.users?.name}}</div>
+    </div>
   </div>
 </div>
 

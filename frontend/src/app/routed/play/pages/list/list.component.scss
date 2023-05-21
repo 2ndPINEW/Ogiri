@@ -1,0 +1,62 @@
+:host {
+  display: block;
+
+  .main-wrapper {
+    max-width: 960px;
+    width: 100%;
+    margin: 0 auto;
+
+    .header {
+      width: 100%;
+      padding: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      .logo {
+        max-width: 180px;
+        width: 60%;
+      }
+    }
+
+    .card {
+      background-color: var(--color-card-background);
+      color: var(--color-on-card);
+      border-radius: 16px;
+      padding: 16px;
+
+      a {
+        color: var(--color-on-card);
+      }
+    }
+  }
+
+
+  svg#clouds {
+    position: fixed;
+    bottom: -160px;
+    left: -230px;
+    z-index: -10;
+    width: 1920px;
+
+    opacity: 0;
+    transition: all 1s ease;
+
+    animation: clouds 30s ease-in-out infinite alternate;
+
+    @keyframes clouds {
+      0% {
+        transform: translateX(0);
+      }
+
+      100% {
+        transform: translateX(5vw);
+      }
+    }
+
+    &.show {
+      opacity: 1;
+    }
+  }
+
+}
