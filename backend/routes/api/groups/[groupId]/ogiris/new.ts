@@ -11,6 +11,7 @@ import {
   methodGuard,
 } from "../../../../../util/guards.ts";
 import { v1 } from "std/uuid";
+import { sendSlack } from "../../../../../util/webhook.ts";
 
 const requestBodyProperties = [
   {
@@ -77,6 +78,25 @@ export const handler = async (req: Request, ctx: HandlerContext) => {
   const { error } = await supabase.from("ogiris").insert([data]);
   const supabaseError = supabaseErrorResponse(error);
   if (supabaseError) return supabaseError;
+
+  const { data: webhooks } = await supabase
+    .from("webhooks")
+    .select("*")
+    .eq("group_id", groupId);
+
+  if (webhooks) {
+    await Promise.all(
+      webhooks.map((webhook) => {
+        if (webhook.type === "slack") {
+          return sendSlack({
+            message: `お題: ${ogiriOdai}\n<https://ogiri.obake.land/play/${data.id}|回答する！>`,
+            url: webhook.url,
+            username: "大喜利くん",
+          });
+        }
+      })
+    );
+  }
 
   return new Response(JSON.stringify(data));
 };
