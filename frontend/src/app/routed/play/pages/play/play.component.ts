@@ -56,6 +56,8 @@ export class PlayComponent {
             this.disabled = true;
             this.hint = '回答済みです';
             this.answer = myAnswer.answer;
+            this.router.navigate(['/', 'result', this.report?.id]);
+            return;
           }
           this.showRandomAnswer = false;
           timer(1000).subscribe(() => {
