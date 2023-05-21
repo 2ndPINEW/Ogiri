@@ -17,6 +17,7 @@ const routes: Routes = [
     loadChildren: () =>
       import('./routed/play/play.module').then((m) => m.PlayModule),
   },
+  { path: 'result', loadChildren: () => import('./routed/result/result.module').then(m => m.ResultModule) },
 ];
 
 @NgModule({

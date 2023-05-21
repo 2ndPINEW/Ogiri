@@ -83,7 +83,7 @@ export class PlayComponent {
 
         if (remainingTime < 0) {
           this.remainingTimeString$.next('00:00:00');
-          // this.router.navigate(['/', 'result', this.report?.id]);
+          this.router.navigate(['/', 'result', this.report?.id]);
           return;
         }
 
@@ -100,6 +100,7 @@ export class PlayComponent {
 
   ngOnDestroy(): void {
     this.subscription.unsubscribe();
+    this.reportSubscription?.unsubscribe();
   }
 
   sendAnswer(): void {
