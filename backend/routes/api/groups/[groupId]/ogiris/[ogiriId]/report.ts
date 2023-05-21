@@ -73,7 +73,7 @@ export const handler = async (req: Request, ctx: HandlerContext) => {
   const headers = {
     "Cache-Control": isComplete
       ? "public, max-age=0, s-maxage=86400"
-      : "public, max-age=0, s-maxage=10",
+      : "public, max-age=0, s-maxage=10, stale-while-revalidate=5",
   };
 
   return new Response(JSON.stringify(ogiri), { headers });

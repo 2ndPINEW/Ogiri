@@ -35,7 +35,7 @@ export const handler = async (req: Request, ctx: HandlerContext) => {
   }
 
   const headers = {
-    "Cache-Control": "public, max-age=0, s-maxage=10",
+    "Cache-Control": "public, max-age=0, s-maxage=10, stale-while-revalidate=5",
   };
 
   return new Response(JSON.stringify(data), { headers });
