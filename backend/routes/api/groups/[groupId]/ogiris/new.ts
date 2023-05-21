@@ -73,6 +73,7 @@ export const handler = async (req: Request, ctx: HandlerContext) => {
     ended_at: endTime.toISOString(),
     group_id: groupId,
     odai: ogiriOdai,
+    status: "open",
   };
   // DBに保存
   const { error } = await supabase.from("ogiris").insert([data]);

@@ -107,6 +107,7 @@ export interface Database {
           group_id: string
           id: string
           odai: string
+          status: string
         }
         Insert: {
           created_at?: string
@@ -114,6 +115,7 @@ export interface Database {
           group_id: string
           id: string
           odai: string
+          status: string
         }
         Update: {
           created_at?: string
@@ -121,6 +123,7 @@ export interface Database {
           group_id?: string
           id?: string
           odai?: string
+          status?: string
         }
       }
       users: {
