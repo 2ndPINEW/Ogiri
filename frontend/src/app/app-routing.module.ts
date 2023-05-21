@@ -26,6 +26,7 @@ const routes: Routes = [
       import('./routed/result/result.module').then((m) => m.ResultModule),
     canActivate: [loginGuard],
   },
+  { path: 'archive', loadChildren: () => import('./routed/archive/archive.module').then(m => m.ArchiveModule) },
 ];
 
 @NgModule({
