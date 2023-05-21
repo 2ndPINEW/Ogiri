@@ -43,7 +43,7 @@ export const handler = async (req: Request, _ctx: HandlerContext) => {
         new Date(ogiri.created_at).getTime();
       const progress = diffTime / durationTime;
 
-      let ogiriScore = 60;
+      let ogiriScore = 40;
       let ogiriReason = "感動でAIが採点できませんでした";
       try {
         const { score, reason } = await scoring(ogiri.odai, answer.answer);
