@@ -1,0 +1,128 @@
+:host {
+  display: block;
+
+  .main-wrapper {
+    max-width: 960px;
+    width: 100%;
+    margin: 0 auto;
+
+    .header {
+      width: 100%;
+      padding: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      .logo {
+        max-width: 180px;
+        width: 60%;
+      }
+
+      .timer {
+        color: var(--color-on-badge);
+        background-color: var(--color-badge);
+        padding: 8px;
+        border-radius: 6px;
+        font-weight: bold;
+        font-size: 20px;
+
+        opacity: 0;
+        transition: all 1s ease;
+
+        &.show {
+          opacity: 1;
+        }
+      }
+    }
+
+    .ogiri-area {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+
+      opacity: 0;
+      transition: all 1s ease;
+
+      &.show {
+        opacity: 1;
+      }
+
+      .card {
+        color: var(--color-on-card);
+        background-color: var(--color-card-background);
+        border-radius: 16px;
+        padding: 16px;
+        max-width: 800px;
+        margin-top: 10%;
+
+        .odai {
+          font-weight: bold;
+          font-size: 24px;
+        }
+
+        .input {
+          width: 100%;
+          margin-top: 16px;
+          background-color: transparent;
+          border: none;
+          border-radius: 0;
+          border-bottom: 2px solid var(--color-on-card);
+          color: var(--color-on-card);
+          font-size: 18px;
+        }
+
+        .input:focus {
+          outline: none;
+        }
+
+        .input::placeholder {
+          color: var(--color-on-card);
+          font-size: 18px;
+        }
+
+        .status-line {
+          font-size: 12px;
+          display: flex;
+          justify-content: space-between;
+          padding-top: 2px;
+
+          .error {
+            color: var(--color-error);
+          }
+
+          .hint {
+            color: var(--color-on-card);
+          }
+        }
+      }
+    }
+  }
+
+  svg#clouds {
+    position: fixed;
+    bottom: -160px;
+    left: -230px;
+    z-index: -10;
+    width: 1920px;
+
+    opacity: 0;
+    transition: all 1s ease;
+
+    animation: clouds 30s ease-in-out infinite alternate;
+
+    @keyframes clouds {
+      0% {
+        transform: translateX(0);
+      }
+
+      100% {
+        transform: translateX(5vw);
+      }
+    }
+
+    &.show {
+      opacity: 1;
+    }
+  }
+}

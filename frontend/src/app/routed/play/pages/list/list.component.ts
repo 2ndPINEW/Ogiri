@@ -13,8 +13,7 @@ export class ListComponent {
   constructor(private ogiriService: OgiriService) {}
 
   ngOnInit(): void {
-    this.ogiriService.allOgiris$().subscribe((res) => {
-      console.log(res);
+    this.ogiriService.openOgiris$().subscribe((res) => {
       this.ogiris$.next(res);
     });
   }

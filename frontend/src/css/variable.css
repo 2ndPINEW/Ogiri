@@ -8,7 +8,11 @@
   --color-on-button: #ffffff;
   --color-button: #B7940D;
 
+  --color-on-badge: #ffffff;
+  --color-badge: #B7940D;
+
   --color-accent: #1976d2;
+  --color-error: #b00020;
 
   --transition-time: 200ms;
 }
