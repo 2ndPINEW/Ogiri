@@ -5,9 +5,7 @@ import { Success } from './api.interface';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 
-const { groupId } = environment;
-
-const UserIdKey = 'userId';
+const { groupId, userIdKey } = environment;
 
 @Injectable({
   providedIn: 'root',
@@ -16,11 +14,11 @@ export class UserService {
   constructor(private api: ApiService) {}
 
   isUserLoggedIn(): boolean {
-    return !!localStorage.getItem(UserIdKey);
+    return !!localStorage.getItem(userIdKey);
   }
 
   userId(): string | null {
-    return localStorage.getItem(UserIdKey);
+    return localStorage.getItem(userIdKey);
   }
 
   login$({ userName }: { userName: string }): Observable<Success | boolean> {
@@ -38,7 +36,7 @@ export class UserService {
       })
       .pipe(
         tap(() => {
-          localStorage.setItem(UserIdKey, userId);
+          localStorage.setItem(userIdKey, userId);
         })
       );
   }

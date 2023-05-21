@@ -3,4 +3,5 @@ export const environment = {
   apiUrl: '/api/',
   siteTitle: 'local ChotOgiri',
   groupId: 'grandprix',
+  userIdKey: 'userId',
 };
