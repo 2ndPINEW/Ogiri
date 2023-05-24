@@ -12,7 +12,7 @@
       <h2 class="score" *ngIf="answer?.score">{{i + 1}}位: {{answer?.score}}点</h2>
       <h3 class="ogiri">{{answer?.answer}}</h3>
       <div class="user" *ngIf="answer.users.id !== myId">{{answer?.users?.name}}さんの回答</div>
-      <div *ngIf="answer.users.id === myId">{{answer?.evaluation}}</div>
+      <div>{{answer?.evaluation}}</div>
     </div>
   </div>
 </div>
