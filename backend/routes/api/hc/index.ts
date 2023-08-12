@@ -9,15 +9,15 @@ export const handler = async (_req: Request, _ctx: HandlerContext) => {
   const { error: insertError } = await supabase.from("hc").insert({ id: 0 });
   const { error: selectError } = await supabase.from("hc").select("*").limit(1);
 
-  return new Response(
-    JSON.stringify({
-      db: {
-        delete: deleteError ? "error" : "ok",
-        insert: insertError ? "error" : "ok",
-        select: selectError ? "error" : "ok",
-      },
-      message: "success",
-      status: 200,
-    })
-  );
+  const res = {
+    db: {
+      delete: deleteError ? "error" : "ok",
+      insert: insertError ? "error" : "ok",
+      select: selectError ? "error" : "ok",
+    },
+    message: "success",
+    status: 200,
+  };
+  console.log(res);
+  return new Response(JSON.stringify(res));
 };
